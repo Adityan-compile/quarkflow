@@ -1,0 +1,32 @@
+{
+  "name": "quarkflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "type": "module",
+  "bin": {
+    "@quarkflow/cli": "bin/index.js",
+    "qwarkflow": "bin/index.js",
+    "qf": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "bytenode -c src/*.js"
+  },
+  "author": "Adityan",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^7.1.1",
+    "bytenode": "^1.5.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "ejs": "^3.1.9",
+    "enquirer": "^2.4.1",
+    "figlet": "^1.6.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.2.10",
+    "ng": "^0.0.0",
+    "pretty-cli": "^0.0.14",
+    "update-notifier": "^6.0.2"
+  }
+}
