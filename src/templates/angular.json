@@ -1,0 +1,48 @@
+{
+    "name": "<%= name %>",
+    "version": "0.0.1",
+    "sleep": "<%= sleep %>",
+    "workflows": {
+      "dev": {
+          "desc": "Development Workflow",
+          "scripts": [
+              "run"
+          ] 
+      },
+      "build": {
+          "desc": "Building Workflow",
+          "scripts": [
+              "lint",
+              "test",
+              "build"
+          ] 
+      },
+      "deploy": {
+          "desc": "Deployment Workflow",
+          "scripts": [
+              "lint",
+              "test",
+              "build",
+              "push"
+          ] 
+      },
+      "test": {
+          "desc": "Testing Workflow",
+          "scripts": [
+              "test",
+              ""
+          ] 
+      }
+    },
+    "scripts": {
+      "run": "ng serve",
+      "lint": "ng lint",
+      "build": "ng build",
+      "test": "ng test",
+      "push": "git push -u origin {branch}"
+    },
+    "env": {
+      "branch": "master"
+    }
+  }
+  

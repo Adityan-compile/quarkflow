@@ -1,0 +1,19 @@
+{
+    "name": "<%= name %>",
+    "version": "0.0.1",
+    "sleep": "<%= sleep %>",
+    "workflows": {
+      "dev": {
+          "desc": "Development Workflow",
+          "scripts": [] 
+      }
+    },
+    "scripts": {
+      "push": "git push -u {origin} {branch}"
+    },
+    "env": {
+      "branch": "master",
+      "origin": "user@remoteserver.com"
+    }
+  }
+  

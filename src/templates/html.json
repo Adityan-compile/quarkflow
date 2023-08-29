@@ -1,0 +1,31 @@
+{
+    "name": "<%= name %>",
+    "version": "0.0.1",
+    "sleep": "<%= sleep %>",
+    "workflows": {
+      "dev": {
+          "desc": "Development Workflow",
+          "concurrent": true,
+          "scripts": [
+              "run",
+              "open"
+          ] 
+      },
+      "deploy": {
+          "desc": "Deployment Workflow",
+          "scripts": [
+              "push"
+          ] 
+      }
+    },
+    "scripts": {
+      "run": "python3 -m http.server {?=port?}",
+      "open": "open -a 'Google Chrome' localhost:{port}",
+      "push": "git push -u origin {branch}"
+    },
+    "env": {
+      "branch": "master",
+      "port": 3000
+    }
+  }
+  

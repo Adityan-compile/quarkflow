@@ -1,0 +1,18 @@
+{
+  "firebase": {
+    "workflows": [],
+    "scripts": {
+      "use": "firebase use {project}",
+      "deploy": "firebase deploy",
+      "serve": "firebase serve"
+    }
+  },
+  "aws": {
+    "workflows": [],
+    "scripts": {
+      "use": "firebase use {project}",
+      "deploy": "firebase deploy",
+      "serve": "firebase serve"
+    }
+  }
+}
