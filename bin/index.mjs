@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-import  {init, initForce, searchAndRun}  from "../src/cli.mjs";
+import  {init, initForce, searchAndRunMenu}  from "../src/cli.mjs";
 import { Command } from "commander";
 import boxen from "boxen";
 import chalk from "chalk";
@@ -32,7 +32,7 @@ program
   .name("Quarkflow")
   .description("A Developer Friendly Workflow Management tool")
   .version("0.0.1").action(()=>{
-    searchAndRun();
+    searchAndRunMenu();
   });
 
 program

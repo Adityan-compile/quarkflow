@@ -3,12 +3,16 @@ import { checkProjectExists, createProject, readAndParseProject } from "./utils/
 import inquirer from "inquirer";
 import prompts from "./utils/prompts.mjs";
 import lme from 'lme';
+import { runMenu } from "./modules/menu.mjs";
 
 
 export const init = (dir) => {
   inquirer
-    .prompt(prompts.INIT_PROMPTS)
+    .prompt(prompts.INIT_PROMPTS, {
+      clearPromptOnDone: true
+    })
     .then((answers) => {
+      console.clear();
       if (answers.name.length === 0 && template === "Empty")
         answers.name = "quarkflow_project";
       if (answers.name.length === 0 && template !== "Empty")
@@ -23,12 +27,16 @@ export const initForce = (dir)=>{
 };
 
 
-export const searchAndRun = ()=>{
+export const searchAndRunMenu = ()=>{
   if(checkProjectExists()){
-    readAndParseProject();
+    const project = readAndParseProject();
+    runMenu();
   }else{
     lme.e("A Project Doesn't Exist in this Folder");
-    inquirer.prompt(prompts.PROJECT_CREATION_CONFIRMATION_PROMPT).then(answer=>{
+    inquirer.prompt(prompts.PROJECT_CREATION_CONFIRMATION_PROMPT, {
+      clearPromptOnDone: true
+    }).then(answer=>{
+      console.clear();
       if(answer.confirmation === true) return createProject("Empty", "quarkflow_project", 1000, ".");
       lme.d("Bye...");
     })

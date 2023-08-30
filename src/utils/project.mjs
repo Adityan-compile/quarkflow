@@ -22,17 +22,25 @@ export const createProject = (template, name, sleep = 1000, dir, force) => {
     sleep,
   });
 
+  if (!fs.existsSync(path.resolve(dir))) fs.mkdirSync(path.resolve(dir));
+
   if (
     fs.existsSync(path.resolve(`${dir}/.quarkflow/`)) &&
     fs.existsSync(path.resolve(`${dir}/.quarkflow/config.json`))
   ) {
     if (force === true) return initProjectFile(processedTemplate, dir, true);
-    inquirer.prompt(prompts.OVERWRITE_CONFIRMATION_PROMPT).then((answer) => {
-      if (answer.overwrite === true) return initProjectFile(processedTemplate, dir, true);
+    inquirer
+      .prompt(prompts.OVERWRITE_CONFIRMATION_PROMPT, {
+        clearPromptOnDone: true,
+      })
+      .then((answer) => {
+        console.clear();
+        if (answer.overwrite === true)
+          return initProjectFile(processedTemplate, dir, true);
 
-      lme.d("Bye...");
-      process.exit(0);
-    });
+        lme.d("Bye...");
+        process.exit(0);
+      });
   } else {
     return initProjectFile(processedTemplate, dir, false);
   }
@@ -48,17 +56,17 @@ const initProjectFile = (processedTemplate, dir, overwrite) => {
   lme.d(gradient.retro("Happy Coding"));
 };
 
-export const checkProjectExists = ()=>{
-  const projectPath = path.resolve('./.quarkflow/config.json');
-  if(fs.existsSync(projectPath)){
+export const checkProjectExists = () => {
+  const projectPath = path.resolve("./.quarkflow/config.json");
+  if (fs.existsSync(projectPath)) {
     return true;
-  }else{ 
-    return  false;
+  } else {
+    return false;
   }
 };
 
-export const readAndParseProject = ()=>{
-  const projectPath = path.resolve('./.quarkflow/config.json');
-  const projectFile = JSON.parse(fs.readFileSync(projectPath, 'utf-8'));
-  parseProjectFile(projectFile);
+export const readAndParseProject = () => {
+  const projectPath = path.resolve("./.quarkflow/config.json");
+  const projectFile = JSON.parse(fs.readFileSync(projectPath, "utf-8"));
+  return parseProjectFile(projectFile);
 };

@@ -1,4 +1,5 @@
-
+import inquirer from "inquirer";
+import chalk from "chalk";
 const prompts = {
     INIT_PROMPTS: [
         {
@@ -45,7 +46,44 @@ const prompts = {
           name: "confirm",
           message: "Would You Like to Create a Project in this folder?",
         }
-      ]
+      ],
+      MENU_PROMPTS: {
+        MAIN_MENU:[
+          {
+            type: "list",
+            name: "actions",
+            message: "What Do You Want to Do?",
+            choices: [
+              {
+                name: 'Run Workflows',
+                value: 'workflows',
+                description: 'Run Your Own Workflows',
+              },
+              {
+                name: 'Run Scripts',
+                value: 'scripts',
+                description: 'Run Your Scripts',
+              },
+              chalk.magenta(new inquirer.Separator()),
+              {
+                name: 'Git Actions',
+                value: 'git',
+                description: "Run Git Actions"
+              },
+              {
+                name: 'Bug Tracker',
+                value: 'bug',
+                description: 'Track Bugs in Your Project'
+              },
+              {
+                name: 'Quit',
+                value: 'quit',
+                description: 'Quit Quarkflow'
+              },
+            ],
+          },
+        ]
+      }
 };
 
 export default prompts;
