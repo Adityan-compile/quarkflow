@@ -38,6 +38,13 @@ const prompts = {
           name: "overwrite",
           message: "A Project is already initialized in this folder. Would You Like to Overwrite?",
         },
+      ],
+      PROJECT_CREATION_CONFIRMATION_PROMPT:[
+        {
+          type: "confirm",
+          name: "confirm",
+          message: "Would You Like to Create a Project in this folder?",
+        }
       ]
 };
 

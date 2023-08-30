@@ -5,33 +5,31 @@
     "workflows": {
       "dev": {
           "desc": "Development Workflow",
-          "scripts": [
-              "run"
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       },
       "build": {
           "desc": "Building Workflow",
-          "scripts": [
-              "lint",
-              "test",
-              "build"
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       },
       "deploy": {
           "desc": "Deployment Workflow",
-          "scripts": [
-              "lint",
-              "test",
-              "build",
-              "push"
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       },
       "test": {
           "desc": "Testing Workflow",
-          "scripts": [
-              "test",
-              ""
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       }
     },
     "scripts": {

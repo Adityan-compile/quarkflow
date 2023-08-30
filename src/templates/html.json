@@ -6,16 +6,17 @@
       "dev": {
           "desc": "Development Workflow",
           "concurrent": true,
-          "scripts": [
-              "run",
-              "open"
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       },
       "deploy": {
           "desc": "Deployment Workflow",
-          "scripts": [
-              "push"
-          ] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       }
     },
     "scripts": {

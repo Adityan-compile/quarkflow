@@ -5,7 +5,10 @@
     "workflows": {
       "dev": {
           "desc": "Development Workflow",
-          "scripts": [] 
+          "commands": [],
+          "pre-run": [],
+          "post-run": [],
+          "env": {}
       }
     },
     "scripts": {
