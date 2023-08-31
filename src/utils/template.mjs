@@ -9,6 +9,7 @@ export const parseProjectFile = (content) => {
   let parsed = {
     name: content.name,
     version: content.version,
+    sleep: content.sleep,
     workflows: {},
     scripts: {},
   };
@@ -19,14 +20,18 @@ export const parseProjectFile = (content) => {
   const workflowKeys = Object.keys(content.workflows);
   workflowKeys.forEach((workflowItem, idx) => {
     let workflow = {
+      "pre-run": content.workflows[workflowItem]["pre-run"],
+      "post-run": content.workflows[workflowItem]["post-run"],
       commands: [],
     };
     content.workflows[workflowItem].commands.forEach((commandItem) => {
+      let parsedCommands = pupa(commandItem, content.workflows[workflowItem].env);
+      parsedCommands = parsedCommands.split(" ");
       workflow.commands.push(
-        pupa(
-          commandItem,
-          content.workflows[workflowItem].env
-        )
+        {
+          cmd: parsedCommands[0],
+          args: parsedCommands.slice(1)
+        }
       );
     });
     parsed.workflows[workflowItem] = workflow;

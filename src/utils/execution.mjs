@@ -1,10 +1,17 @@
 import { spawn } from "child_process";
-
-export const runSingleCommand = (command) => {
+import lme from "lme";
+export const runSingleCommand = (command, args) => {
   return new Promise((resolve, reject) => {
     let startTime = Date.now();
-    spawn(command, {
+    spawn(command, [...args],{
       stdio: [process.stdin, process.stdout, process.stderr],
-    }).on("close", () => resolve(Date.now() - startTime));
+      cwd: process.cwd(),
+
+    })
+      .on("close", () => resolve(Date.now() - startTime))
+      .on("error", (err) => lme.e(err));
   });
 };
+
+export const sleep = (waitTime) =>
+  new Promise((resolve) => setTimeout(resolve, waitTime));

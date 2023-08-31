@@ -4,6 +4,9 @@ import inquirer from "inquirer";
 import prompts from "./utils/prompts.mjs";
 import lme from 'lme';
 import { runMenu } from "./modules/menu.mjs";
+import {
+  set
+} from "./modules/state/index.mjs";
 
 
 export const init = (dir) => {
@@ -30,6 +33,7 @@ export const initForce = (dir)=>{
 export const searchAndRunMenu = ()=>{
   if(checkProjectExists()){
     const project = readAndParseProject();
+    set('project', project);
     runMenu();
   }else{
     lme.e("A Project Doesn't Exist in this Folder");

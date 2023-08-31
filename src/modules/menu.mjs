@@ -1,21 +1,27 @@
 import inquirer from "inquirer";
 import prompts from "../utils/prompts.mjs";
+import {
+  launchScriptManager,
+  launchWorkflowManager,
+} from "./workflows/index.mjs";
+import { launchGitManager } from "./git/index.mjs";
+import { launchBugTracker } from "./bugTracker/index.mjs";
 
 export const runMenu = () => {
   inquirer.prompt(prompts.MENU_PROMPTS.MAIN_MENU).then((answers) => {
     console.clear();
     switch (answers.actions) {
       case "workflows":
-          //Launch Workflow Manager
-         break;     
-     case "scripts":
-          //Launch Script Manager
-          break;
-    case "git":
-        //Launch Git Manager
+        launchWorkflowManager();
         break;
-    case "bug":
-        //Launch Bug Tracker
+      case "scripts":
+        launchScriptManager();
+        break;
+      case "git":
+        launchGitManager();
+        break;
+      case "bug":
+        launchBugTracker();
         break;
       default:
         process.exit(0);
