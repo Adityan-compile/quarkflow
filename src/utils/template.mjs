@@ -18,8 +18,8 @@ export const parseProjectFile = (content) => {
     let parsedScript = pupa(content.scripts[item], content.env);
     parsedScript = parsedScript.split(" ");
     parsed.scripts[item] = {
-      cmd: parsedCommand[0],
-      args: parsedCommand.slice(1)
+      cmd: parsedScript[0],
+      args: parsedScript.slice(1)
     };
   });
   const workflowKeys = Object.keys(content.workflows);

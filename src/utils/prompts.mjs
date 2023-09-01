@@ -93,6 +93,16 @@ const prompts = {
         };
       },
     },
+    SCRIPT_MANAGER_MENU: {
+      createMenu: (scripts) => {
+        return {
+          type: "list",
+          name: "script",
+          message: "Which Script Would You Like to Run?",
+          choices: scripts,
+        };
+      },
+    },
   },
 };
 
