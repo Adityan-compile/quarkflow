@@ -1,7 +1,11 @@
 #! /usr/bin/env node
 
-import { init, initForce} from "../src/cli.mjs";
-import { checkProjectExists, createProject, readAndParseProject } from "../src/utils/project.mjs";
+import { init, initForce } from "../src/cli.mjs";
+import {
+  checkProjectExists,
+  createProject,
+  readAndParseProject,
+} from "../src/utils/project.mjs";
 import { Command } from "commander";
 import boxen from "boxen";
 import chalk from "chalk";
@@ -16,9 +20,7 @@ import {
 import { runMenu } from "../src/modules/menu.mjs";
 import inquirer from "inquirer";
 import lme from "lme";
-import { 
-  set
-} from "../src/modules/state/index.mjs";
+import { set } from "../src/modules/state/index.mjs";
 const program = new Command();
 
 process.stdout.write(
@@ -37,26 +39,28 @@ program
   .description("A Developer Friendly Workflow Management tool")
   .option("-w, --workflow <workflow>", "Run a Workflow Non Interactively")
   .option("-s, --script <script>", "Run a Script Non Interactively")
-  .version("0.0.1")
+  .version("1.0.0")
   .action((options) => {
-    if(checkProjectExists()){
+    if (checkProjectExists()) {
       const project = readAndParseProject();
       set("project", project);
-    }else{
+    } else {
       lme.e("A Project Doesn't Exist in this Folder");
-      inquirer.prompt(prompts.PROJECT_CREATION_CONFIRMATION_PROMPT, {
-        clearPromptOnDone: true
-      }).then(answer=>{
-        console.clear();
-        if(answer.confirmation === true) return createProject("Empty", "quarkflow_project", 1000, ".");
-        lme.d("Bye...");
-      })
+      inquirer
+        .prompt(prompts.PROJECT_CREATION_CONFIRMATION_PROMPT, {
+          clearPromptOnDone: true,
+        })
+        .then((answer) => {
+          console.clear();
+          if (answer.confirmation === true)
+            return createProject("Empty", "quarkflow_project", 1000, ".");
+          lme.d("Bye...");
+        });
     }
     if (options.workflow) return runWorkflowUninteractively(options.workflow);
     if (options.script) return runScriptUninteractively(options.script);
-    
-    runMenu();
 
+    runMenu();
   });
 
 program
@@ -69,7 +73,7 @@ program
     init(dir);
   });
 
-  program
+program
   .command("git")
   .description("Run Supported Git Commands")
   .argument("<command>", "Git Command to Run")
@@ -77,6 +81,5 @@ program
     if (options.force) return initForce(dir);
     init(dir);
   });
-
 
 program.parse(process.argv);
