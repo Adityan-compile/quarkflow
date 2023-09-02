@@ -1,4 +1,4 @@
-import { runCommandAsPromise, runSingleCommand, sleep as sysSleep } from "../../utils/execution.mjs";
+import { runSingleCommand, sleep as sysSleep } from "../../utils/execution.mjs";
 import lme from "lme";
 import { triggerWebhook } from "../../utils/webhook.mjs";
 
@@ -16,7 +16,9 @@ export const runWorkflow = async (workflow, sleep) => {
     });
   
   // Run all the commands concurrently
-  const commandPromises = workflow.commands.map(runCommandAsPromise);
+  const commandPromises = workflow.commands.map(command=>{
+    return runSingleCommand(command.cmd, command.args);
+  });
   
   Promise.all(commandPromises)
     .then(() => {

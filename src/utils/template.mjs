@@ -46,11 +46,10 @@ export const parseProjectFile = (content) => {
       parsedCommand = parsedCommand.split(" ");
       if(scriptKeys.includes(parsedCommand[0])){
         const parsedScript = parsed.scripts[parsedCommand[0]];
-        const args = parsed.scripts.slice(1);
         workflow.commands.push(
           {
             cmd: parsedScript.cmd,
-            args: args
+            args: parsedScript.args
           }
         );
       }else{
