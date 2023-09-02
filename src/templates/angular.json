@@ -8,28 +8,32 @@
       "commands": [],
       "pre-run": [],
       "post-run": [],
-      "env": {}
+      "env": {},
+      "webhook": ""
     },
     "build": {
       "desc": "Building Workflow",
       "commands": [],
       "pre-run": [],
       "post-run": [],
-      "env": {}
+      "env": {},
+      "webhook": ""
     },
     "deploy": {
       "desc": "Deployment Workflow",
       "commands": [],
       "pre-run": [],
       "post-run": [],
-      "env": {}
+      "env": {},
+      "webhook": ""
     },
     "test": {
       "desc": "Testing Workflow",
       "commands": [],
       "pre-run": [],
       "post-run": [],
-      "env": {}
+      "env": {},
+      "webhook": ""
     }
   },
   "scripts": {

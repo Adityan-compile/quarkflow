@@ -19,18 +19,6 @@ const prompts = {
       message: "Choose a template(Note: Only Initializes a Quarkflow Project)",
       choices: ["Empty", "React", "Angular", "Vue", "Express", "HTML"],
     },
-    {
-      type: "checkbox",
-      name: "integrations",
-      message: "Choose Integrations",
-      choices: ["Github", "Firebase", "Digital Ocean", "AWS"],
-    },
-    {
-      type: "confirm",
-      name: "bugTracker",
-      message: "Do You Want to Setup A Bug Tracker?",
-      default: true,
-    },
   ],
   OVERWRITE_CONFIRMATION_PROMPT: [
     {
@@ -71,11 +59,6 @@ const prompts = {
             description: "Run Git Actions",
           },
           {
-            name: "Bug Tracker",
-            value: "bug",
-            description: "Track Bugs in Your Project",
-          },
-          {
             name: "Quit",
             value: "quit",
             description: "Quit Quarkflow",
@@ -100,6 +83,16 @@ const prompts = {
           name: "script",
           message: "Which Script Would You Like to Run?",
           choices: scripts,
+        };
+      },
+    },
+    GIT_MANAGER_MENU: {
+      createMenu: (commands) => {
+        return {
+          type: "list",
+          name: "command",
+          message: "Which Command Would You Like to Run?",
+          choices: commands
         };
       },
     },

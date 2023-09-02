@@ -6,7 +6,7 @@
   "type": "module",
   "bin": {
     "@quarkflow/cli": "bin/index.mjs",
-    "qwarkflow": "bin/index.mjs",
+    "quarkflow": "bin/index.mjs",
     "qf": "bin/index.mjs"
   },
   "scripts": {
@@ -14,22 +14,20 @@
     "compile": "bytenode -c src/*.mjs"
   },
   "author": "Adityan",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "ajv": "^8.12.0",
     "boxen": "^7.1.1",
-    "bytenode": "^1.5.1",
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
     "ejs": "^3.1.9",
-    "enquirer": "^2.4.1",
     "figlet": "^1.6.0",
     "gradient-string": "^2.0.2",
     "inquirer": "^9.2.10",
     "inquirer-autocomplete-prompt": "^3.0.0",
     "lme": "^1.5.3",
-    "ng": "^0.0.0",
+    "minimal-request": "^3.0.0",
     "pretty-cli": "^0.0.14",
-    "system-sleep": "^1.3.7",
     "update-notifier": "^6.0.2"
   }
 }

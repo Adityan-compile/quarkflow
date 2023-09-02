@@ -1,46 +1,49 @@
 {
-    "name": "<%= name %>",
-    "version": "0.0.1",
-    "sleep": "<%= sleep %>",
-    "workflows": {
-      "dev": {
-          "desc": "Development Workflow",
-          "commands": [],
-          "pre-run": [],
-          "post-run": [],
-          "env": {}
-      },
-      "build": {
-          "desc": "Building Workflow",
-          "commands": [],
-          "pre-run": [],
-          "post-run": [],
-          "env": {}
-      },
-      "deploy": {
-          "desc": "Deployment Workflow",
-          "commands": [],
-          "pre-run": [],
-          "post-run": [],
-          "env": {}
-      },
-      "test": {
-          "desc": "Testing Workflow",
-          "commands": [],
-          "pre-run": [],
-          "post-run": [],
-          "env": {}
-      }
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "sleep": "<%= sleep %>",
+  "workflows": {
+    "dev": {
+      "desc": "Development Workflow",
+      "commands": [],
+      "pre-run": [],
+      "post-run": [],
+      "env": {},
+      "webhook": ""
     },
-    "scripts": {
-      "run": "npm run serve",
-      "lint": "npm run lint",
-      "build": "npm run build",
-      "test": "npm run test:unit",
-      "push": "git push -u origin {branch}"
+    "build": {
+      "desc": "Building Workflow",
+      "commands": [],
+      "pre-run": [],
+      "post-run": [],
+      "env": {},
+      "webhook": ""
     },
-    "env": {
-      "branch": "master"
+    "deploy": {
+      "desc": "Deployment Workflow",
+      "commands": [],
+      "pre-run": [],
+      "post-run": [],
+      "env": {},
+      "webhook": ""
+    },
+    "test": {
+      "desc": "Testing Workflow",
+      "commands": [],
+      "pre-run": [],
+      "post-run": [],
+      "env": {},
+      "webhook": ""
     }
+  },
+  "scripts": {
+    "run": "npm run serve",
+    "lint": "npm run lint",
+    "build": "npm run build",
+    "test": "npm run test:unit",
+    "push": "git push -u origin {branch}"
+  },
+  "env": {
+    "branch": "master"
   }
-  
+}

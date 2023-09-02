@@ -5,7 +5,6 @@ import {
   launchWorkflowManager,
 } from "./workflows/index.mjs";
 import { launchGitManager } from "./git/index.mjs";
-import { launchBugTracker } from "./bugTracker/index.mjs";
 
 export const runMenu = () => {
   inquirer.prompt(prompts.MENU_PROMPTS.MAIN_MENU).then((answers) => {
@@ -19,9 +18,6 @@ export const runMenu = () => {
         break;
       case "git":
         launchGitManager();
-        break;
-      case "bug":
-        launchBugTracker();
         break;
       default:
         process.exit(0);

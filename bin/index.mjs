@@ -69,4 +69,14 @@ program
     init(dir);
   });
 
+  program
+  .command("git")
+  .description("Run Supported Git Commands")
+  .argument("<command>", "Git Command to Run")
+  .action((dir, options) => {
+    if (options.force) return initForce(dir);
+    init(dir);
+  });
+
+
 program.parse(process.argv);

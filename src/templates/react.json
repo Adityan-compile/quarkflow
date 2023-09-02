@@ -12,32 +12,36 @@
         "post-run": [],
         "env": {
           "sample": "Hello World"
-        }
+        },
+        "webhook": ""
+
     },
     "build": {
         "desc": "Building Workflow",
         "commands": [],
         "pre-run": [],
         "post-run": [],
-        "env": {}
+        "env": {},
+        "webhook": ""
     },
     "deploy": {
         "desc": "Deployment Workflow",
         "commands": [],
         "pre-run": [],
         "post-run": [],
-        "env": {}
+        "env": {},
+        "webhook": ""
+
     },
     "test": {
         "desc": "Testing Workflow",
         "commands": [],
         "pre-run": [],
         "post-run": [],
-        "env": {}
+        "env": {},
+        "webhook": ""
+
     }
-  },
-  "integrations":{
-    
   },
   "scripts": {
     "run": "npm start",

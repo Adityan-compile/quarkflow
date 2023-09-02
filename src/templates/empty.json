@@ -8,7 +8,8 @@
           "commands": [],
           "pre-run": [],
           "post-run": [],
-          "env": {}
+          "env": {},
+          "webhook": ""
       }
     },
     "scripts": {

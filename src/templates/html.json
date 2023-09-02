@@ -9,14 +9,16 @@
           "commands": [],
           "pre-run": [],
           "post-run": [],
-          "env": {}
+          "env": {},
+          "webhook": ""
       },
       "deploy": {
           "desc": "Deployment Workflow",
           "commands": [],
           "pre-run": [],
           "post-run": [],
-          "env": {}
+          "env": {},
+          "webhook": ""
       }
     },
     "scripts": {
