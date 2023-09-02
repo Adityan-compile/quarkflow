@@ -1,6 +1,6 @@
 {
-  "name": "quarkflow",
-  "version": "1.0.1",
+  "name": "quarkflow-cli",
+  "version": "1.0.0",
   "description": "Quarkflow is a CLI Workflow Manager and Task Runner",
   "main": "bin/index.mjs",
   "type": "module",

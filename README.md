@@ -20,7 +20,8 @@ To install Quarkflow, follow these steps:
 2. **Install Quarkflow**: Use npm to install Quarkflow globally:
 
    ```sh
-   npm install -g quarkflow
+   npm install -g quarkflow-cli
+
    ```
 
 3. **Verify Installation**: To verify that Quarkflow is installed correctly, run the following command:
