@@ -22,7 +22,7 @@
       }
     },
     "scripts": {
-      "run": "python3 -m http.server {?=port?}",
+      "run": "python3 -m http.server {port}",
       "open": "open -a 'Google Chrome' localhost:{port}",
       "push": "git push -u origin {branch}"
     },

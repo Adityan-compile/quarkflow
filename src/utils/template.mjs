@@ -1,6 +1,7 @@
 import ejs from "ejs";
 import pupa from "pupa";
 import Ajv from "ajv";
+import {schema} from "./schema.mjs";
 
 export const renderTemplate = (content, data) => {
   return ejs.render(content, data);

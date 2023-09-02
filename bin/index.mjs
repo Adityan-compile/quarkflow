@@ -39,7 +39,7 @@ program
   .description("A Developer Friendly Workflow Management tool")
   .option("-w, --workflow <workflow>", "Run a Workflow Non Interactively")
   .option("-s, --script <script>", "Run a Script Non Interactively")
-  .version("1.0.0")
+  .version("1.0.1")
   .action((options) => {
     if (checkProjectExists()) {
       const project = readAndParseProject();
