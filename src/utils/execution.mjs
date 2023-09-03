@@ -1,5 +1,6 @@
 import { spawn } from "child_process";
-import lme from "lme";
+
+import signale from "signale";
 
 export const runSingleCommand = (command, args) => {
   return new Promise((resolve, reject) => {
@@ -9,10 +10,11 @@ export const runSingleCommand = (command, args) => {
       cwd: process.cwd(),
     });
     childProcess.on("error", (err)=>{
-      throw new Error(err);
+      signale.fatal(err);
+      process.exit(1);
     });
     childProcess.on("exit", (code) => {
-      lme.s(`Process ended with ${code}`);
+      signale.info(`Process ended with ${code}`);
       if(code !== 0) return reject(new Error(`Command '${command}' exited with code ${code}`));;
       resolve();
     });

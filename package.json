@@ -1,6 +1,6 @@
 {
   "name": "quarkflow-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Quarkflow is a CLI Workflow Manager and Task Runner",
   "main": "bin/index.mjs",
   "type": "module",
@@ -8,6 +8,10 @@
     "@quarkflow/cli": "bin/index.mjs",
     "quarkflow": "bin/index.mjs",
     "qf": "bin/index.mjs"
+  },
+  "funding":{
+   "type": "Buy Me A Coffee",
+   "url": "https://www.buymeacoffee.com/techieaviator" 
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -41,9 +45,9 @@
     "gradient-string": "^2.0.2",
     "inquirer": "^9.2.10",
     "inquirer-autocomplete-prompt": "^3.0.0",
-    "lme": "^1.5.3",
     "minimal-request": "^3.0.0",
     "pretty-cli": "^0.0.14",
+    "signale": "^1.4.0",
     "update-notifier": "^6.0.2"
   }
 }

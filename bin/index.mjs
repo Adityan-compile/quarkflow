@@ -12,6 +12,7 @@ import chalk from "chalk";
 import figlet from "figlet";
 import gradient from "gradient-string";
 import updateNotifier from "update-notifier";
+import prompts from "../src/utils/prompts.mjs";
 import packageJson from "../package.json" assert { type: "json" };
 import {
   runScriptUninteractively,
@@ -19,8 +20,10 @@ import {
 } from "../src/modules/workflows/index.mjs";
 import { runMenu } from "../src/modules/menu.mjs";
 import inquirer from "inquirer";
-import lme from "lme";
+
+import signale from "signale";
 import { set } from "../src/modules/state/index.mjs";
+
 const program = new Command();
 
 process.stdout.write(
@@ -39,28 +42,30 @@ program
   .description("A Developer Friendly Workflow Management tool")
   .option("-w, --workflow <workflow>", "Run a Workflow Non Interactively")
   .option("-s, --script <script>", "Run a Script Non Interactively")
-  .version("1.0.0")
+  .version("1.0.2")
   .action((options) => {
     if (checkProjectExists()) {
       const project = readAndParseProject();
       set("project", project);
+      runMenu();
     } else {
-      lme.e("A Project Doesn't Exist in this Folder");
+      signale.error("A Project Doesn't Exist in this Folder");
       inquirer
         .prompt(prompts.PROJECT_CREATION_CONFIRMATION_PROMPT, {
           clearPromptOnDone: true,
         })
         .then((answer) => {
           console.clear();
-          if (answer.confirmation === true)
-            return createProject("Empty", "quarkflow_project", 1000, ".");
-          lme.d("Bye...");
+          if (answer.confirmation === true){
+            createProject("Empty", "quarkflow_project", 1000, ".");
+            runMenu();
+          }else{
+            signale.note("Bye...");
+          }
         });
     }
     if (options.workflow) return runWorkflowUninteractively(options.workflow);
     if (options.script) return runScriptUninteractively(options.script);
-
-    runMenu();
   });
 
 program

@@ -3,13 +3,14 @@ import { get } from "../state/index.mjs";
 import prompts from "../../utils/prompts.mjs";
 import { runScript, runWorkflow } from "./runner.mjs";
 
-import lme from "lme";
+
+import signale from "signale";
 
 export const launchWorkflowManager = () => {
   const currentProject = get("project");
   const workflowKeys = Object.keys(currentProject.workflows);
   if (workflowKeys.length === 0) {
-    lme.e("No Workflows Found");
+    signale.warn("No Workflows Found");
     return process.exit(0);
   }
   inquirer
@@ -26,7 +27,7 @@ export const launchScriptManager = () => {
   const currentProject = get("project");
   const scriptKeys = Object.keys(currentProject.scripts);
   if (scriptKeys.length === 0) {
-    lme.e("No Scripts Found");
+    signale.warn("No Scripts Found");
     return process.exit(0);
   }
   inquirer

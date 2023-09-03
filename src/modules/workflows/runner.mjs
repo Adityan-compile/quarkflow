@@ -1,6 +1,6 @@
 import { runSingleCommand, sleep as sysSleep } from "../../utils/execution.mjs";
-import lme from "lme";
 import { triggerWebhook } from "../../utils/webhook.mjs";
+import signale from "signale";
 
 export const runWorkflow = async (workflow, sleep) => {
   let startTime = Date.now();
@@ -22,7 +22,7 @@ export const runWorkflow = async (workflow, sleep) => {
   
   Promise.all(commandPromises)
     .then(() => {
-      lme.i('Commands Finished Running Concurrently');
+      signale.complete('Commands Finished Running Concurrently');
     })
     .catch((err) => {
       throw new Error(err);
@@ -51,10 +51,10 @@ export const runWorkflow = async (workflow, sleep) => {
         runtime,
       },
     });
-    lme.i("Webhook Triggered");
+    signale.complete("Webhook Triggered");
   }
 
-  lme.s(`Workflow Finished Running in: ${runtime} s`);
+  signale.success(`Workflow Finished Running in: ${runtime} s`);
 };
 
 export const runScript = async (cmd, args) => {

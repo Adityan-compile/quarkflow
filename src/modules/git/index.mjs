@@ -1,7 +1,8 @@
 import inquirer from "inquirer";
 import { checkRepositoryExists } from "./git.mjs";
 import { runSingleCommand } from "../../utils/execution.mjs";
-import lme from "lme";
+
+import signale from "signale";
 import prompts from "../../utils/prompts.mjs";
 export const launchGitManager = () => {
   if (checkRepositoryExists()) {
@@ -10,12 +11,12 @@ export const launchGitManager = () => {
       .prompt(prompts.MENU_PROMPTS.GIT_MANAGER_MENU.createMenu(commands))
       .then(({ command }) => {
         command = command.toLowerCase();
-        lme.i(`Running Command: git ${command}`);
+        signale.await(`Running Command: git ${command}`);
         runSingleCommand("git", [command]);
       });
   } else {
-    lme.i("Git Repository not Found!");
-    lme.i("Initializing Git Repository");
+    signale.warn("Git Repository not Found!");
+    signale.info("Initializing Git Repository");
     runSingleCommand("git", ["init"]);
   }
 };
